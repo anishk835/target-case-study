@@ -12,6 +12,7 @@
 		<jackson.version>2.7.5</jackson.version>
 		<springsecurity.version>4.1.1.RELEASE</springsecurity.version>
 		<springsecurityoauth2.version>2.0.10.RELEASE</springsecurityoauth2.version>
+		<hibernate.version>4.1.7.Final</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -37,7 +38,17 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
@@ -66,6 +77,17 @@
 			<version>${springsecurity.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.2.3.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
 	</dependencies>
 
 
