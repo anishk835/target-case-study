@@ -1,4 +1,4 @@
-package com.targert.casestudy.config.oauth;
+package com.target.casestudy.config.oauth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

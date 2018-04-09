@@ -1,4 +1,4 @@
-package com.targert.casestudy.controller;
+package com.target.casestudy.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.targert.casestudy.model.User;
-import com.targert.casestudy.service.UserService;
+import com.target.casestudy.model.User;
+import com.target.casestudy.service.UserService;
 
 @RestController
 public class UserRestController {

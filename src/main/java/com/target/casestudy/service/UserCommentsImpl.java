@@ -1,4 +1,4 @@
-package com.targert.casestudy.service;
+package com.target.casestudy.service;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.targert.casestudy.controller;
+package com.target.casestudy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.targert.casestudy.model.Status;
-import com.targert.casestudy.service.UserComments;
+import com.target.casestudy.model.Status;
+import com.target.casestudy.service.UserComments;
 
 @RestController
 public class FeedbackRestController {

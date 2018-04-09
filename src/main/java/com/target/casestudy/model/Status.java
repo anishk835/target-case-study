@@ -1,4 +1,4 @@
-package com.targert.casestudy.model;
+package com.target.casestudy.model;
 
 public class Status {
 

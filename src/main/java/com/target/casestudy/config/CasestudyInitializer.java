@@ -1,4 +1,4 @@
-package com.targert.casestudy.config;
+package com.target.casestudy.config;
 
 import javax.servlet.Filter;
 

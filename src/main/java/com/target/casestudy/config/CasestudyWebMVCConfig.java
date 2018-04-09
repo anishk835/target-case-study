@@ -1,4 +1,4 @@
-package com.targert.casestudy.config;
+package com.target.casestudy.config;
 
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;

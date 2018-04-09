@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.web.client.RestTemplate;
 
-import com.targert.casestudy.model.User;
+import com.target.casestudy.model.User;
  
  
 public class SpringRestTestClient {

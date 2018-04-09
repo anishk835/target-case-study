@@ -1,4 +1,4 @@
-package com.targert.casestudy.config.security;
+package com.target.casestudy.config.security;
 
 import java.io.IOException;
 import java.io.PrintWriter;

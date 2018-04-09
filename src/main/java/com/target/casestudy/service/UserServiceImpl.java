@@ -1,4 +1,4 @@
-package com.targert.casestudy.service;
+package com.target.casestudy.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.targert.casestudy.model.User;
+import com.target.casestudy.model.User;
 
 @Service("userService")
 @Transactional

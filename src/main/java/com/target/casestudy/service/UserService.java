@@ -1,8 +1,8 @@
-package com.targert.casestudy.service;
+package com.target.casestudy.service;
 
 import java.util.List;
 
-import com.targert.casestudy.model.User;
+import com.target.casestudy.model.User;
 
 public interface UserService {
 
