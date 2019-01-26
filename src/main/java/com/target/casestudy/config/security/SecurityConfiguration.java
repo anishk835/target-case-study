@@ -10,10 +10,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+	private static final String REALM = "MY_REALM";
 
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
@@ -21,6 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("tom").password("abc123").roles("USER");
 	}
 
+	/*
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().anonymous().disable().authorizeRequests().antMatchers("/oauth/token").permitAll();
@@ -31,8 +35,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+	*/
 
-	/*
+	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
   
@@ -48,7 +53,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new CustomBasicAuthenticationEntryPoint();
     }
      
-    */
 	
 	/* To allow Pre-flight [OPTIONS] request from browser */
 	@Override
@@ -64,11 +68,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public boolean equals(Object obj) {
 		return super.equals(obj);
-	}
-
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
 	}
 
 	@Override

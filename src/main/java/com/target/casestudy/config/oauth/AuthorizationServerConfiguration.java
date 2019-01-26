@@ -15,9 +15,9 @@ import org.springframework.security.oauth2.provider.approval.UserApprovalHandler
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
-@Configuration
-@EnableAuthorizationServer
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@Configuration
+//@EnableAuthorizationServer
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	private static final String REALM = "MY_OAUTH_REALM";
