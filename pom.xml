@@ -8,7 +8,7 @@
 	<name>target case study</name>
 
 	<properties>
-		<springframework.version>5.0.5.RELEASE</springframework.version>
+		<springframework.version>5.3.4</springframework.version>
 		<jackson.version>2.9.5</jackson.version>
 		<springsecurity.version>4.1.1.RELEASE</springsecurity.version>
 		<springsecurityoauth2.version>2.0.10.RELEASE</springsecurityoauth2.version>
