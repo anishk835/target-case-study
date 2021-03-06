@@ -1,5 +1,7 @@
 package com.casestudy.security.casestudy.userdao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -35,5 +37,15 @@ public class AppUserDaoImpl implements AppUserDao {
 			logger.error("Exception occurred while getting user from db - {}", e.getCause());
 		}
 		return appUser;
+	}
+
+	@Override
+	public boolean isUserExists(String userName) {
+		String sql = "Select e from " + AppUser.class.getName() + " e " + " Where e.userName = :userName ";
+		logger.debug("Sql query to check if suer exists is {}", sql);
+		Query query = entityManager.createQuery(sql, AppUser.class);
+		query.setParameter("userName", userName);
+		List<?> resultList = query.getResultList();
+		return resultList != null ? !resultList.isEmpty() : false;
 	}
 }

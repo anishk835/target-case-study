@@ -20,6 +20,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import com.casestudy.security.casestudy.config.auth.clientservice.AppClientService;
 import com.casestudy.security.casestudy.config.security.userservice.UserBeanDetailService;
 
+@SuppressWarnings("deprecation")
 @Configuration
 public class OauthConfiguration extends AuthorizationServerConfigurerAdapter {
 

@@ -13,12 +13,11 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-import com.casestudy.security.casestudy.config.security.userservice.UserBeanDetailService;
+import com.casestudy.security.casestudy.filter.CaseStudyUserValidationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -26,16 +25,14 @@ import com.casestudy.security.casestudy.config.security.userservice.UserBeanDeta
 public class UserSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserBeanDetailService userBeanDetailService;
+	private CaseStudyUserAuthenticationProvider caseStudyUserAuthenticationProvider;
 
-	@Bean
-	public PasswordEncoder encoder() {
-		return new BCryptPasswordEncoder();
-	}
+	@Autowired
+	private CaseStudyUserValidationFilter caseStudyUserValidationFilter;
 
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userBeanDetailService).passwordEncoder(encoder());
+		auth.authenticationProvider(caseStudyUserAuthenticationProvider);
 	}
 
 	@Override
@@ -44,10 +41,11 @@ public class UserSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 * http.authorizeRequests().anyRequest().authenticated().and().sessionManagement
 		 * () .sessionCreationPolicy(SessionCreationPolicy.NEVER);
 		 */
-		http.csrf().disable().authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
-				.antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-				.antMatchers("/", "/login", "/logout").permitAll().and().exceptionHandling().accessDeniedPage("/403")
-				.and().formLogin().loginProcessingUrl("/j_spring_security_check").loginPage("/login")
+		http.addFilterAfter(caseStudyUserValidationFilter, ChannelProcessingFilter.class).csrf().disable()
+				.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')").antMatchers("/userInfo")
+				.access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')").antMatchers("/", "/login", "/logout").permitAll().and()
+				.exceptionHandling().accessDeniedPage("/403").and().formLogin()
+				.loginProcessingUrl("/j_spring_security_check").loginPage("/login")
 				.defaultSuccessUrl("/userAccountInfo").failureUrl("/login?error=true").usernameParameter("username")
 				.passwordParameter("password").and().logout().logoutUrl("/logout")
 				.logoutSuccessUrl("/logoutSuccessful");

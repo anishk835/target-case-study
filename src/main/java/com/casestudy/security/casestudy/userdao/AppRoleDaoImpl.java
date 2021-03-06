@@ -26,4 +26,5 @@ public class AppRoleDaoImpl implements AppRoleDao {
 		query.setParameter("userId", userId);
 		return query.getResultList();
 	}
+
 }

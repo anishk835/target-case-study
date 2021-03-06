@@ -1,5 +1,7 @@
 package com.casestudy.security.casestudy.config.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -17,6 +19,8 @@ import com.casestudy.security.casestudy.config.security.userservice.UserBeanDeta
 @Component
 public class CaseStudyUserAuthenticationProvider implements AuthenticationProvider {
 
+	private static Logger logger = LoggerFactory.getLogger(CaseStudyUserAuthenticationProvider.class);
+
 	@Autowired
 	private UserBeanDetailService userBeanDetailService;
 
@@ -29,7 +33,9 @@ public class CaseStudyUserAuthenticationProvider implements AuthenticationProvid
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		UserDetails loadUserByUsername = userBeanDetailService.loadUserByUsername(authentication.getName());
 		if (null != loadUserByUsername) {
-			if (encoder().matches((CharSequence) authentication.getCredentials(), loadUserByUsername.getPassword()))
+			CharSequence credentials = (CharSequence) authentication.getCredentials();
+			logger.debug("Found case study user auth token and the credential is {}", credentials);
+			if (encoder().matches((CharSequence) credentials, loadUserByUsername.getPassword()))
 				return new UsernamePasswordAuthenticationToken(loadUserByUsername.getUsername(),
 						loadUserByUsername.getPassword(), loadUserByUsername.getAuthorities());
 		}

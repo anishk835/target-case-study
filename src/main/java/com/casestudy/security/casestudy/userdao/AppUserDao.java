@@ -5,4 +5,6 @@ import com.casestudy.security.casestudy.model.AppUser;
 public interface AppUserDao {
 
 	AppUser findUser(String userName);
+	
+	boolean isUserExists(String userName);;
 }
