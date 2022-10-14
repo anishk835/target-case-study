@@ -41,7 +41,7 @@ public class UserSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 * http.authorizeRequests().anyRequest().authenticated().and().sessionManagement
 		 * () .sessionCreationPolicy(SessionCreationPolicy.NEVER);
 		 */
-		http.addFilterAfter(caseStudyUserValidationFilter, ChannelProcessingFilter.class).csrf().disable()
+		http.addFilterAfter(caseStudyUserValidationFilter, ChannelProcessingFilter.class)
 				.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')").antMatchers("/userInfo")
 				.access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')").antMatchers("/", "/login", "/logout").permitAll().and()
 				.exceptionHandling().accessDeniedPage("/403").and().formLogin()
