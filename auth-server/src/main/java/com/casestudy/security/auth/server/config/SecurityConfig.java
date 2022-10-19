@@ -10,7 +10,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import com.casestudy.security.auth.server.service.CaseStudyAuthServerAuthenticationProvider;
 
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class SecurityConfig {
 
 	@Autowired
