@@ -12,13 +12,17 @@ import com.casestudy.security.auth.server.service.CaseStudyAuthServerAuthenticat
 
 @EnableWebSecurity(debug = true)
 public class SecurityConfig {
+	
+	private static final String[] PERMIT_URLS = { "/h2-console" };
 
 	@Autowired
 	private CaseStudyAuthServerAuthenticationProvider caseStudyAuthServerAuthenticationProvider;
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		return http.authorizeRequests(authorizeRequest -> authorizeRequest.anyRequest().authenticated())
+		return http
+				.authorizeRequests(authorizeRequest -> authorizeRequest.antMatchers(PERMIT_URLS).permitAll()
+						.anyRequest().authenticated())
 				.formLogin(Customizer.withDefaults()).authenticationProvider(caseStudyAuthServerAuthenticationProvider)
 				.build();
 	}
