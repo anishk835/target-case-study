@@ -1,0 +1,1 @@
+INSERT INTO USERS (ID, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, ROLE, ENABLED) VALUES (1, 'Anish', 'Kumar', 'anish@gmail.com', '$2a$11$2T.HH2yl72I860/.WYm7iell09Pw6INv6yuFL25M2jWCdXpALvNmi', 'Developer', true);
