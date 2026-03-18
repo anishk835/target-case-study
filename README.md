@@ -1,7 +1,7 @@
 # 🔐 Spring Security OAuth2 Authorization Server Case Study
 
-[![Java CI with Maven](https://github.com/anishk835/target-case-study/actions/workflows/maven.yml/badge.svg)](https://github.com/anishk835/target-case-study/actions/workflows/maven.yml)
-[![CodeQL](https://github.com/anishk835/target-case-study/actions/workflows/codeql.yml/badge.svg)](https://github.com/anishk835/target-case-study/actions/workflows/codeql.yml)
+[![Java CI with Maven](https://github.com/anishk835/target-case-study/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/anishk835/target-case-study/actions/workflows/maven.yml)
+[![CodeQL](https://github.com/anishk835/target-case-study/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/anishk835/target-case-study/actions/workflows/codeql.yml)
 
 A complete demonstration of **Spring Security OAuth2 Authorization Server** with resource server and client applications. This multi-module Maven project showcases the implementation of OAuth2 authorization code flow, JWT token generation, and secure resource access patterns.
 
